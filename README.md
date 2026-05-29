@@ -4,7 +4,7 @@
 ![React](https://img.shields.io/badge/React-18-61DAFB)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A portfolio-grade B2B admin console for **organizations, users, roles, permissions, audit logs**, and a sample protected **Invoices** API. Built with **.NET 8**, **EF Core**, **SQL Server**, **JWT**, and **React + MUI**.
+A portfolio-grade B2B admin console for **organizations, users, roles, permissions, audit logs**, and a sample protected **Invoices** API. Built with **.NET 8**, **EF Core**, **PostgreSQL**, **JWT**, and **React + MUI**.
 
 ## Demo
 
@@ -24,7 +24,7 @@ A portfolio-grade B2B admin console for **organizations, users, roles, permissio
 ## Architecture
 
 ```
-React (web/)  →  ASP.NET Core API  →  Application services  →  EF Core  →  SQL Server
+React (web/)  →  ASP.NET Core API  →  Application services  →  EF Core  →  PostgreSQL
 ```
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for RBAC model and design decisions.
@@ -33,11 +33,15 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for RBAC model and design decis
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - [Node.js 20+](https://nodejs.org/)
-- SQL Server LocalDB (Visual Studio) **or** Docker for SQL Server
+- PostgreSQL 16 (local install **or** Docker — see below). For deployment, a free hosted Postgres such as [Neon](https://neon.tech) or [Supabase](https://supabase.com) works well.
 
-## Quick start (LocalDB)
+## Quick start
 
 ```powershell
+# Terminal 0 — start Postgres (Docker)
+cd d:\IAM
+docker compose up -d
+
 # Terminal 1 — API
 cd d:\IAM
 dotnet restore
@@ -62,13 +66,15 @@ Database is created and seeded on first API run.
 | `admin@acme.local` | `Admin123!` | Acme org admin |
 | `viewer@acme.local` | `Viewer123!` | Acme viewer (read-only) |
 
-## Docker SQL Server (optional)
+## Docker PostgreSQL
 
 ```powershell
 docker compose up -d
 ```
 
-Copy connection string from [docker-compose.override.example.json](docker-compose.override.example.json) into `src/AccessHub.Api/appsettings.Development.json`.
+This starts a `postgres:16` container on port `5432` (user `postgres`, password `postgres`, database `accesshub`), which matches the default connection string in `appsettings.json`. To override it, copy the connection string from [docker-compose.override.example.json](docker-compose.override.example.json) into `src/AccessHub.Api/appsettings.Development.json`.
+
+For deployment, point `ConnectionStrings:DefaultConnection` at a hosted Postgres (e.g. [Neon](https://neon.tech) or [Supabase](https://supabase.com)) using its Npgsql-style connection string.
 
 ## Tests
 
