@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccessHub.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(AccessHubDbContext))]
-    [Migration("20260529083612_InitialCreate")]
+    [Migration("20260529091954_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -107,7 +107,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("OrganizationId");
 
-                    b.ToTable("AspNetUsers", (string)null);
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.AuditEvent", b =>
@@ -147,7 +147,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("OrganizationId");
 
-                    b.ToTable("AuditEvents");
+                    b.ToTable("AuditEvents", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.Invoice", b =>
@@ -181,7 +181,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
                     b.HasIndex("OrganizationId", "Number")
                         .IsUnique();
 
-                    b.ToTable("Invoices");
+                    b.ToTable("Invoices", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.Organization", b =>
@@ -211,7 +211,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
                     b.HasIndex("Slug")
                         .IsUnique();
 
-                    b.ToTable("Organizations");
+                    b.ToTable("Organizations", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.Permission", b =>
@@ -238,7 +238,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
                     b.HasIndex("Code")
                         .IsUnique();
 
-                    b.ToTable("Permissions");
+                    b.ToTable("Permissions", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.Role", b =>
@@ -266,7 +266,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
                     b.HasIndex("OrganizationId", "Name")
                         .IsUnique();
 
-                    b.ToTable("OrgRoles");
+                    b.ToTable("Roles", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.RolePermission", b =>
@@ -281,7 +281,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("PermissionId");
 
-                    b.ToTable("RolePermissions");
+                    b.ToTable("RolePermissions", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.UserRole", b =>
@@ -299,7 +299,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("OrgUserRoles");
+                    b.ToTable("UserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<System.Guid>", b =>
@@ -327,7 +327,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("AspNetRoles", (string)null);
+                    b.ToTable("IdentityRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -351,7 +351,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetRoleClaims", (string)null);
+                    b.ToTable("RoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
@@ -375,7 +375,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserClaims", (string)null);
+                    b.ToTable("UserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
@@ -396,7 +396,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("AspNetUserLogins", (string)null);
+                    b.ToTable("UserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
@@ -411,7 +411,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("AspNetUserRoles", (string)null);
+                    b.ToTable("IdentityUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -430,7 +430,7 @@ namespace AccessHub.Infrastructure.Persistence.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("AspNetUserTokens", (string)null);
+                    b.ToTable("UserTokens", (string)null);
                 });
 
             modelBuilder.Entity("AccessHub.Domain.Entities.ApplicationUser", b =>

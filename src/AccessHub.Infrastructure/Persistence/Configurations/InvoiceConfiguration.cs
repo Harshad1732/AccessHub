@@ -8,6 +8,7 @@ public class InvoiceConfiguration : IEntityTypeConfiguration<Invoice>
 {
     public void Configure(EntityTypeBuilder<Invoice> builder)
     {
+        builder.ToTable("Invoices");
         builder.HasKey(i => i.Id);
         builder.Property(i => i.Number).HasMaxLength(50).IsRequired();
         builder.Property(i => i.CustomerName).HasMaxLength(200).IsRequired();

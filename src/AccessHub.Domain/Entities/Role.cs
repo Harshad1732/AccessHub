@@ -1,8 +1,5 @@
-using System.ComponentModel.DataAnnotations.Schema;
-
 namespace AccessHub.Domain.Entities;
 
-[Table("OrgRoles")]
 public class Role
 {
     public Guid Id { get; set; }

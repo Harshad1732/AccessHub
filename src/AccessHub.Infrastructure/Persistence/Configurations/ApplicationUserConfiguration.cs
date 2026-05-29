@@ -8,6 +8,7 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
+        builder.ToTable("Users");
         builder.Property(u => u.FullName).HasMaxLength(200).IsRequired();
         builder.HasOne(u => u.Organization).WithMany(o => o.Users).HasForeignKey(u => u.OrganizationId);
     }

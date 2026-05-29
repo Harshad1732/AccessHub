@@ -8,6 +8,7 @@ public class RoleConfiguration : IEntityTypeConfiguration<Role>
 {
     public void Configure(EntityTypeBuilder<Role> builder)
     {
+        builder.ToTable("Roles");
         builder.HasKey(r => r.Id);
         builder.Property(r => r.Name).HasMaxLength(100).IsRequired();
         builder.HasIndex(r => new { r.OrganizationId, r.Name }).IsUnique();
