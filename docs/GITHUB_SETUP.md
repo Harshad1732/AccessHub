@@ -33,19 +33,19 @@ gh repo create AccessHub --public --source=. --remote=origin --push
 
 ## 3. Connect remote and push
 
-Replace `YOUR_USERNAME` with your GitHub username:
+Repository URL for this project:
 
 ```powershell
 cd d:\IAM
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/AccessHub.git
+git remote add origin https://github.com/Harshad1732/AccessHub.git
 git push -u origin main
 ```
 
 If you use SSH:
 
 ```powershell
-git remote add origin git@github.com:YOUR_USERNAME/AccessHub.git
+git remote add origin git@github.com:Harshad1732/AccessHub.git
 git push -u origin main
 ```
 
@@ -76,7 +76,7 @@ Add to the top of `README.md` after pushing:
 ## 6. Put on resume / LinkedIn
 
 ```
-https://github.com/YOUR_USERNAME/AccessHub
+https://github.com/Harshad1732/AccessHub
 ```
 
 ## Troubleshooting
