@@ -6,6 +6,12 @@
 
 A portfolio-grade B2B admin console for **organizations, users, roles, permissions, audit logs**, and a sample protected **Invoices** API. Built with **.NET 8**, **EF Core**, **SQL Server**, **JWT**, and **React + MUI**.
 
+## Demo
+
+![AccessHub demo — admin RBAC walkthrough and read-only viewer](docs/demo/accesshub-demo.gif)
+
+*Record or refresh: `.\scripts\record-demo.ps1` — see [docs/DEMO_RECORDING.md](docs/DEMO_RECORDING.md).*
+
 ## Features
 
 - Multi-organization (tenant) model

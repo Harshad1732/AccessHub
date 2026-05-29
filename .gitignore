@@ -9,6 +9,7 @@
 ## Node
 web/node_modules/
 web/dist/
+scripts/node_modules/
 
 ## Secrets (never commit)
 appsettings.*.local.json
@@ -19,6 +20,9 @@ web/.env
 .idea/
 *.swp
 .cursor/
+
+## Demo temp files
+docs/demo/_video/
 
 ## OS
 Thumbs.db

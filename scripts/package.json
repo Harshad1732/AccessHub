@@ -1,0 +1,12 @@
+{
+  "name": "accesshub-demo-recorder",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "record": "node record-demo.mjs"
+  },
+  "devDependencies": {
+    "ffmpeg-static": "^5.2.0",
+    "playwright": "^1.51.0"
+  }
+}
