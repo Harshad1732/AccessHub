@@ -2,9 +2,17 @@ import { createContext, useContext, useMemo, useState, type ReactNode } from 're
 import api from '../api/client';
 import type { LoginResponse } from '../types';
 
+interface RegisterInput {
+  organizationName: string;
+  fullName: string;
+  email: string;
+  password: string;
+}
+
 interface AuthState {
   user: LoginResponse | null;
   login: (email: string, password: string) => Promise<void>;
+  register: (input: RegisterInput) => Promise<void>;
   logout: () => void;
   hasPermission: (code: string) => boolean;
 }
@@ -26,6 +34,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setUser(data);
   };
 
+  const register = async (input: RegisterInput) => {
+    const { data } = await api.post<LoginResponse>('/api/auth/register', {
+      organizationName: input.organizationName,
+      fullName: input.fullName,
+      email: input.email,
+      password: input.password,
+    });
+    localStorage.setItem('accesshub_token', data.token);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    setUser(data);
+  };
+
   const logout = () => {
     localStorage.removeItem('accesshub_token');
     localStorage.removeItem(STORAGE_KEY);
@@ -36,7 +56,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     !!user && (user.isSuperAdmin || user.permissions.includes(code));
 
   const value = useMemo(
-    () => ({ user, login, logout, hasPermission }),
+    () => ({ user, login, register, logout, hasPermission }),
     [user]
   );
 

@@ -1,6 +1,6 @@
-import { Alert, Box, Button, Paper, TextField, Typography } from '@mui/material';
+import { Alert, Box, Button, Link as MuiLink, Paper, Stack, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 export default function LoginPage() {
@@ -15,7 +15,7 @@ export default function LoginPage() {
     setError('');
     try {
       await login(email, password);
-      navigate('/');
+      navigate('/app');
     } catch {
       setError('Invalid email or password.');
     }
@@ -51,6 +51,12 @@ export default function LoginPage() {
         <Typography variant="caption" sx={{ mt: 2, display: 'block' }}>
           Try: admin@acme.local / Admin123! or viewer@acme.local / Viewer123!
         </Typography>
+        <Stack direction="row" spacing={0.5} sx={{ mt: 2 }}>
+          <Typography variant="body2">Don&apos;t have an account?</Typography>
+          <MuiLink component={RouterLink} to="/register" variant="body2">
+            Register
+          </MuiLink>
+        </Stack>
       </Paper>
     </Box>
   );

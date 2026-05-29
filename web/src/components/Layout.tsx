@@ -10,21 +10,27 @@ import {
   Toolbar,
   Typography,
 } from '@mui/material';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
-  { path: '/', label: 'Dashboard', permission: null },
-  { path: '/users', label: 'Users', permission: 'users.read' },
-  { path: '/roles', label: 'Roles', permission: 'roles.read' },
-  { path: '/invoices', label: 'Invoices', permission: 'invoices.read' },
-  { path: '/audit', label: 'Audit Log', permission: 'audit.read' },
-  { path: '/organizations', label: 'Organizations', permission: 'organizations.manage' },
+  { path: '/app', label: 'Dashboard', permission: null },
+  { path: '/app/users', label: 'Users', permission: 'users.read' },
+  { path: '/app/roles', label: 'Roles', permission: 'roles.read' },
+  { path: '/app/invoices', label: 'Invoices', permission: 'invoices.read' },
+  { path: '/app/audit', label: 'Audit Log', permission: 'audit.read' },
+  { path: '/app/organizations', label: 'Organizations', permission: 'organizations.manage' },
 ];
 
 export default function Layout() {
   const { user, logout, hasPermission } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -36,7 +42,7 @@ export default function Layout() {
           <Typography variant="body2" sx={{ mr: 2 }}>
             {user?.fullName} ({user?.organizationName ?? 'Super Admin'})
           </Typography>
-          <Button color="inherit" onClick={logout}>
+          <Button color="inherit" onClick={handleLogout}>
             Logout
           </Button>
         </Toolbar>
