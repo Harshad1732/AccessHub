@@ -1,5 +1,9 @@
 # AccessHub — Advanced User Access Management (IAM)
 
+![.NET](https://img.shields.io/badge/.NET-8.0-512BD4)
+![React](https://img.shields.io/badge/React-18-61DAFB)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 A portfolio-grade B2B admin console for **organizations, users, roles, permissions, audit logs**, and a sample protected **Invoices** API. Built with **.NET 8**, **EF Core**, **SQL Server**, **JWT**, and **React + MUI**.
 
 ## Features
