@@ -1,0 +1,25 @@
+## .NET
+[Bb]in/
+[Oo]bj/
+*.user
+*.suo
+.vs/
+*.DotSettings.user
+
+## Node
+web/node_modules/
+web/dist/
+
+## Secrets (never commit)
+appsettings.*.local.json
+**/secrets.json
+web/.env
+
+## IDE / tools
+.idea/
+*.swp
+.cursor/
+
+## OS
+Thumbs.db
+.DS_Store
