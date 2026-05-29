@@ -2,14 +2,14 @@
 
 ## Resume project entry (copy/adapt)
 
-**AccessHub** — Multi-tenant RBAC admin API (.NET 8, EF Core, PostgreSQL, JWT) + React admin UI  
+**AccessHub** — Multi-tenant RBAC admin API (.NET 8, EF Core, SQL Server, JWT) + React admin UI  
 - Designed org-scoped roles and `resource.action` permissions with API-level enforcement and audit logging  
 - Implemented JWT permission claims and policy-based authorization on a sample Invoices domain API  
 - Built React admin console for users, roles, and permission assignment with 403-aware UX  
 
 ## LinkedIn headline tweak
 
-`.NET Developer | ASP.NET Core | PostgreSQL | Building secure B2B access control (RBAC/IAM)`
+`.NET Developer | ASP.NET Core | SQL Server | Building secure B2B access control (RBAC/IAM)`
 
 ## 2-minute interview story
 

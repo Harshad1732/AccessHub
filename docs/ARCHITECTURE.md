@@ -27,7 +27,7 @@ sequenceDiagram
     participant API as ASP.NET API
     participant Auth as JWT Middleware
     participant RBAC as Permission Handler
-    participant DB as PostgreSQL
+    participant DB as SQL Server
 
     UI->>API: POST /api/auth/login
     API->>DB: Validate user + load roles

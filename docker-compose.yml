@@ -1,14 +1,13 @@
 services:
-  postgres:
-    image: postgres:16
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: accesshub
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "AccessHub_Strong_Pass123!"
     ports:
-      - "5432:5432"
+      - "1433:1433"
     volumes:
-      - accesshub-pg:/var/lib/postgresql/data
+      - accesshub-sql:/var/opt/mssql
 
 volumes:
-  accesshub-pg:
+  accesshub-sql:

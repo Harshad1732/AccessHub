@@ -14,7 +14,7 @@ This script:
 2. Records a ~30s walkthrough (admin → audit → viewer read-only)
 3. Saves **`docs/demo/accesshub-demo.gif`**
 
-Requirements: Node.js, .NET 8, PostgreSQL (same as running the app).
+Requirements: Node.js, .NET 8, SQL Server LocalDB (same as running the app).
 
 First run installs Playwright Chromium:
 
